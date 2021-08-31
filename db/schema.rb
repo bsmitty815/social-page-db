@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_141942) do
   enable_extension "plpgsql"
 
   create_table "profiles", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.text "bio"
     t.text "status"
     t.datetime "created_at", precision: 6, null: false
@@ -32,4 +32,5 @@ ActiveRecord::Schema.define(version: 2021_08_30_141942) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "profiles", "users"
 end
