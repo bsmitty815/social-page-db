@@ -2,10 +2,12 @@ class UsersController < ApplicationController
 
     #create user
     def create
-        user = User.new(user_params)
-        if user.save
+        user = User.create(user_params)
+        
+        if user.valid?
+            byebug
             session[:user_ud] = user.id
-            redner json: user, status: :created
+            render json: user, status: :created
         else
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
@@ -14,7 +16,8 @@ class UsersController < ApplicationController
 
     #show user
     def show
-        user = user.find_by(id: session[:user_id])
+        #byebug
+        user = User.find_by(id: session[:user_id])
         if user
             render json: user
         else
@@ -25,6 +28,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :password,  :password_confirmation, :image)
+        params.require(:user).permit(:username, :password, :password_confirmation, :image)
+        #params.permit(:username, :password, :password_confirmation, :image)
     end
 end
