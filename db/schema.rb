@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2021_08_30_141942) do
   enable_extension "plpgsql"
 
   create_table "profiles", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.text "bio"
     t.text "status"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
