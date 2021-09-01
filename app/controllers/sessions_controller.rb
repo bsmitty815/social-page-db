@@ -5,8 +5,9 @@ class SessionsController < ApplicationController
 
         user = User.find_by(username: params[:username])
         # user.authenticate
-        if user&.authenticate(params[:password])
+        if user.authenticate(params[:password])
             session[:user_id] = user.id
+           
             render json: user, status: :created
         else
             render json: { error: "Invalid username or password" }, status: :unauthorized
@@ -15,12 +16,15 @@ class SessionsController < ApplicationController
 
     #logout method
     def destroy
-        if session[:user_id]
-            session.delete :user_id
-            head :no_content
-        else
-            render json: { error: "User not found" }, status: :unauthorized
-        end
+        session.delete :user_id
+        head :no_content
+        # if session[:user_id]
+            
+        #     session.delete :user_id
+        #     head :no_content
+        # else
+        #     render json: { error: "User not found" }, status: :unauthorized
+        # end
     end
 
 

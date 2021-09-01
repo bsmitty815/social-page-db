@@ -2,11 +2,9 @@ class UsersController < ApplicationController
 
     #create user
     def create
-        user = User.new(user_params)
-        #byebug
-        if user.save
-
-            session[:user_ud] = user.id
+        user = User.create!(user_params)
+        if user
+            session[:user_id] = user.id
             render json: user, status: :created
         else
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
@@ -16,7 +14,7 @@ class UsersController < ApplicationController
 
     #show user
     def show
-        #byebug
+        
         user = User.find_by(id: session[:user_id])
         if user
             render json: user
@@ -29,7 +27,7 @@ class UsersController < ApplicationController
 
     def user_params
         #if you use params.require you need to send it as a key of user from the front end / user: {}
-        #params.require(:user).permit(:username, :password, :password_confirmation, :image)
-        params.permit(:username, :password, :password_confirmation, :image)
+        params.require(:user).permit(:username, :password, :password_confirmation, :image)
+        #params.permit(:username, :password, :password_confirmation, :image)
     end
 end
