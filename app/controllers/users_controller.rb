@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
+        #if you use params.require you need to send it as a key of user from the front end / user: {}
         #params.require(:user).permit(:username, :password, :password_confirmation, :image)
         params.permit(:username, :password, :password_confirmation, :image)
     end
