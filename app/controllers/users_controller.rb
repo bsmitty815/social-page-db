@@ -23,6 +23,25 @@ class UsersController < ApplicationController
         end
     end
 
+    # update user
+    def update
+        user = User.find_by(id: session[:user_id])
+        # check if old password matches
+        # authenticate old password
+        #take out params and update new password
+
+    end
+
+    # delete user
+    def destroy
+        #byebug
+        #user = User.find_by(id: session[:user_id])
+        user = User.find_by(params[:user_id])
+        user.destroy
+        render json: :head_content
+
+    end
+
     private
 
     def user_params
