@@ -9,8 +9,8 @@
 User.destroy_all
 Profile.destroy_all
 
-a = User.create(username: "admin", image: "" ,password: "admin", password_confirmation: "admin")
+a = User.create(username: "admin", password: "admin", password_confirmation: "admin")
 
-Profile.create(user_id: a.id, bio: "test bio", status: "test status")
+Profile.create(user_id: a.id, image: "" , bio: "test bio", status: "test status")
 
 puts "seed done"
