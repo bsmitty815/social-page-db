@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
     #before_action :show, :update, :destroy
 
+    def show
+        user = User.find_by(id: session[:user_id])
+        render json: user
+    end
     #create user
     def create
         user = User.create!(user_params)
