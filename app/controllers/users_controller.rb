@@ -32,27 +32,17 @@ class UsersController < ApplicationController
     def update
         user = User.find_by(id: session[:user_id])
         
-        old_password = params[:user][:oldPassword]
-        #if old password equals this run this else
+        old_password = params[:oldPass][:oldPassword]
         if user&.authenticate(old_password)
-            #new_pass = params[:user][:password]
-            #byebug
-            #new_password = params.permit(:password, :password_confirmation)
-            if user&.authenticate(params[:user][:password])#user.password_digest = new_pass
-                #user.update
-                user.update(password_params)
-                #user.update(params.permit[:user][:password, :password_confirmation])
-                render json: user, status: :created
+            if user.update(password_params)
+                render json: { message: "Password updated" }, status: 200
             else
-                render json: { error:  "Passwords do not match" }, status: :unprocessable_entity
+                render json: { message:  "Passwords do not match" }, status: 422
             end
         else
-            render json: { error: "Old password wrong" }, status: :unprocessable_entity
+            render json: { message: "Old password wrong" }, status: 422
         end
-        #password doesnt match
-        # check if old password matches
-        # authenticate old password
-        #take out params and update new password
+
 
     end
 
