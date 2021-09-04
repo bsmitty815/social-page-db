@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :profiles
+  resources :profiles, only: [:update]
   resources :users, only: [:show, :update, :destroy]
 
   # handle login and logout
