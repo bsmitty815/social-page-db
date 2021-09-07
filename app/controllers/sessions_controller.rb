@@ -16,15 +16,9 @@ class SessionsController < ApplicationController
 
     #logout method
     def destroy
-        session.delete :user_id
+        session.destroy
         head :no_content
-        # if session[:user_id]
-            
-        #     session.delete :user_id
-        #     head :no_content
-        # else
-        #     render json: { error: "User not found" }, status: :unauthorized
-        # end
+
     end
 
 

@@ -48,9 +48,9 @@ class UsersController < ApplicationController
 
     # delete user
     def destroy
-        #user = User.find_by(id: session[:user_id])
-        user = User.find_by(params[:user_id])
+        user = User.find_by(id: session[:user_id])
         user.destroy
+        
         render json: :head_content
 
     end
