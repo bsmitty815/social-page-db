@@ -1,13 +1,21 @@
 class UsersController < ApplicationController
     #before_action :show, :update, :destroy
 
+    def index
+        users = User.all
+        render json: users
+    end
+
     def show
         user = User.find_by(id: session[:user_id])
         render json: user
     end
+
+
     #create user
     def create
         user = User.create!(user_params)
+
         if user
             session[:user_id] = user.id
             render json: user, status: :created
