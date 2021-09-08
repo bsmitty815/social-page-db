@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :profiles, only: [:update]
-  resources :users, only: [:index, :show, :update, :destroy]
+  resources :profiles, only: [:update, :index]
+  resources :users, only: [:show, :update, :destroy]
 
   # handle login and logout
   post '/login', to: 'sessions#create'

@@ -1,6 +1,12 @@
 class ProfilesController < ApplicationController
 
     #update profile
+
+    def index
+        profiles = Profile.all
+        render json: profiles
+    end
+
     def update
         user = User.find_by(id: session[:user_id])
         profile = user.profile
