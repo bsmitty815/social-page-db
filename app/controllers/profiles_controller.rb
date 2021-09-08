@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
 
     #update profile
     def update
+        byebug
         user = User.find_by(id: session[:user_id])
         profile = user.profile
         #byebug
@@ -19,6 +20,7 @@ class ProfilesController < ApplicationController
     private
 
     def profile_params
-        params.require(:profile).permit(:image, :bio, :status)
+        #params.require(:profile).permit(:image, :bio, :status)
+        params.require(:profile).permit(:image, :bio, :status, :avatar)
     end
 end
