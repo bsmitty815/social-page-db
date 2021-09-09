@@ -12,7 +12,7 @@ Follow these instructions to install your own copy on your computer
 3. Copy the SSH link
 4. Open up your terminal on your computer
 5. Type `git clone` plus the ssh link you copied and press enter
-6. type `cd trading-card-collection-db and press enter
+6. type `cd social-page-db and press enter
 7. Type `code .` to open up your Visual Studio
 
 # Running The Server
