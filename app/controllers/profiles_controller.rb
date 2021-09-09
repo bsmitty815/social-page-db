@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-
+    
     #update profile
 
     def index
@@ -27,4 +27,6 @@ class ProfilesController < ApplicationController
         #params.require(:profile).permit(:image, :bio, :status, :avatar)
         params.permit(:image, :bio, :status, :avatar)
     end
+
+
 end

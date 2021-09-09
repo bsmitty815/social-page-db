@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action :show, only: [:update, :destroy]
+
+    skip_before_action :authorize, only: [:create]
 
 
     def show
@@ -70,4 +71,7 @@ class UsersController < ApplicationController
     def password_params
         params.require(:user).permit(:password, :password_confirmation)
     end
+
+
+
 end
