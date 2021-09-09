@@ -1,24 +1,28 @@
-# README
+# Social Page Database
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Social Page database is the back end for [Social Page front end](https://github.com/bsmitty815/social-page)
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+# Install Your Own Copy
+Follow these instructions to install your own copy on your computer
 
-* Configuration
+1. Fork the repo.
+2. Then click the green button on the top right
+3. Copy the SSH link
+4. Open up your terminal on your computer
+5. Type `git clone` plus the ssh link you copied and press enter
+6. type `cd trading-card-collection-db and press enter
+7. Type `code .` to open up your Visual Studio
 
-* Database creation
+# Running The Server
 
-* Database initialization
+1. While you are in trading-card-collection-db run `bundle install` in the terminal
+2. Run `rails s`. This will start up the server
+3. You can view the server in your browser at - http://localhost:9393/cards
 
-* How to run the test suite
+# Resources
+This application was built using Ruby On Rails and the database runs off of PreSql
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
