@@ -2,11 +2,13 @@ class ProfilesController < ApplicationController
     
     #update profile
 
+    #GET
     def index
         profiles = Profile.all
         render json: profiles
     end
 
+    #PATCH
     def update
         user = User.find_by(id: session[:user_id])
         profile = user.profile
@@ -23,8 +25,6 @@ class ProfilesController < ApplicationController
     private
 
     def profile_params
-        #params.require(:profile).permit(:image, :bio, :status)
-        #params.require(:profile).permit(:image, :bio, :status, :avatar)
         params.permit(:image, :bio, :status, :avatar)
     end
 

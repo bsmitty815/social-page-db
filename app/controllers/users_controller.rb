@@ -3,13 +3,14 @@ class UsersController < ApplicationController
     skip_before_action :authorize, only: [:create]
 
 
+    #GET 
     def show
         user = User.find_by(id: session[:user_id])
         render json: user
     end
 
 
-    #create user
+    #PSOT create user
     def create
         user = User.create!(user_params)
 
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
 
     end
 
-    #show user
+    #GET show user
     def show
         
         user = User.find_by(id: session[:user_id])
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
         end
     end
 
-    # update user
+    #PATCH update user
     def update
         user = User.find_by(id: session[:user_id])
         
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
 
     end
 
-    # delete user
+    #DELETE delete user
     def destroy
         user = User.find_by(id: session[:user_id])
         user.destroy
